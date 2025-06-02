@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: kanban-server
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: DB_NAME
+        value: kanban_db
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASSWORD
+        value: postgres
+      - key: JWT_SECRET_KEY
+        value: thisisasecret
+    autoDeploy: true
+    buildFilter:
+      paths:
+        - server/**
+        - client/**
+databases:
+  - name: kanban-db
+    plan: free
+    databaseName: kanban_db
+    user: postgres
