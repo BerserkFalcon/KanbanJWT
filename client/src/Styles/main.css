@@ -1,0 +1,109 @@
+@import './variables.css';
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-secondary);
+}
+
+button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #1d4ed8;
+}
+
+.card, .ticket-card {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.04);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.editBtn {
+  background: var(--color-accent);
+  color: #fff;
+  margin-right: 0.5em;
+}
+.editBtn:hover {
+  background: #16a34a;
+}
+
+.deleteBtn {
+  background: var(--color-danger);
+  color: #fff;
+}
+.deleteBtn:hover {
+  background: #b91c1c;
+}
+
+.swim-lane {
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  margin: 0.5rem;
+  padding: 1rem;
+  flex: 1;
+  min-width: 250px;
+}
+
+.board-display {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0 0 12px 12px;
+}
+
+.nav-title a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.nav ul {
+  margin-left: auto;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav-link, .nav-item button {
+  color: #fff;
+  background: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .board-display {
+    flex-direction: column;
+  }
+}

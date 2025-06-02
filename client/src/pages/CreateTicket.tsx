@@ -59,39 +59,46 @@ const CreateTicket = () => {
   }
 
   return (
-    <>
-      <div className='container'>
-        <form className='form' onSubmit=
-        {handleSubmit}>
-          <h1>Create Ticket</h1>
-          <label htmlFor='tName'>Ticket Name</label>
+    <div className="form-container">
+      <h1>Create New Ticket</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
+          <input 
+            id="title" 
+            name="name" 
+            value={newTicket?.name || ''} 
+            onChange={handleTextChange} 
+            required 
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
           <textarea 
-            id='tName'
-            name='name'
-            value={newTicket?.name || ''}
-            onChange={handleTextAreaChange}
-            />
-          <label htmlFor='tStatus'>Ticket Status</label>
+            id="description" 
+            name="description" 
+            value={newTicket?.description || ''} 
+            onChange={handleTextAreaChange} 
+            required 
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="tStatus">Ticket Status</label>
           <select 
-            name='status' 
-            id='tStatus'
+            name="status" 
+            id="tStatus"
             value={newTicket?.status || ''}
             onChange={handleTextChange}
           >
-            <option value='Todo'>Todo</option>
-            <option value='In Progress'>In Progress</option>
-            <option value='Done'>Done</option>
+            <option value="Todo">Todo</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
           </select>
-          <label htmlFor='tDescription'>Ticket Description</label>
-          <textarea 
-            id='tDescription'
-            name='description'
-            value={newTicket?.description || ''}
-            onChange={handleTextAreaChange}
-          />
-          <label htmlFor='tUserId'>User's ID</label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="tUserId">User's ID</label>
           <select
-            name='assignedUserId'
+            name="assignedUserId"
             value={newTicket?.assignedUserId || ''}
             onChange={handleUserChange}
           >
@@ -103,18 +110,21 @@ const CreateTicket = () => {
               )
             }) : (
             <textarea 
-              id='tUserId'
-              name='assignedUserId'
+              id="tUserId"
+              name="assignedUserId"
               value={newTicket?.assignedUserId || 0}
               onChange={handleTextAreaChange}
             />
             )
           }
           </select>
-          <button type='submit' onSubmit={handleSubmit}>Submit Form</button>
-        </form>
-      </div>
-    </>
+        </div>
+        <div className="form-actions">
+          <button type="submit" className="button-primary">Create</button>
+          <button type="button" className="button-danger" onClick={() => navigate('/')}>Cancel</button>
+        </div>
+      </form>
+    </div>
   )
 };
 
